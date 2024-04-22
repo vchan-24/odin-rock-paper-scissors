@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Page Title</title>
+</head>
+<body>
+  <script>
+    // Your JavaScript goes here!
+    
+
+
+function getComputerChoice() {
+	choice = Math.random()*100;
+    if (choice < 33) {
+        return "rock";
+    } else if (choice < 33 && choice < 36) {
+        return "paper"
+    } else {
+        return "scissors"
+    }
+}
+
+console.log(getComputerChoice(6))
+
+
+
+
+  </script>
+</body>
+</html>
