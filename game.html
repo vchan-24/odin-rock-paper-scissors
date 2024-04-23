@@ -11,17 +11,29 @@
 
 
 function getComputerChoice() {
-	choice = Math.random()*100;
-    if (choice < 33) {
+	choice = Math.floor(Math.random()*3);
+    if (choice == 1) {
         return "rock";
-    } else if (choice < 33 && choice < 36) {
+    } else if (choice == 2) {
         return "paper"
     } else {
         return "scissors"
     }
 }
 
-console.log(getComputerChoice(6))
+console.log(getComputerChoice());
+
+function getHumanChoice() {
+    input = window.prompt("Choose your weapon soldier","");
+    humanChoice = input.toLowerCase();
+    if (humanChoice == "rock" || humanChoice == "paper" || humanChoice == "scissors") {
+        return humanChoice;
+    } else {
+        return alert("NOT A VALID CHOICE");
+    }
+}
+
+console.log(getHumanChoice());
 
 
 
