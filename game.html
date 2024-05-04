@@ -8,7 +8,8 @@
   <script>
     // Your JavaScript goes here!
     
-
+let humanScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
 	choice = Math.floor(Math.random()*3);
@@ -24,18 +25,17 @@ function getComputerChoice() {
 console.log(getComputerChoice());
 
 function getHumanChoice() {
-    input = window.prompt("Choose your weapon soldier","");
-    humanChoice = input.toLowerCase();
-    if (humanChoice == "rock" || humanChoice == "paper" || humanChoice == "scissors") {
-        return humanChoice;
-    } else {
-        return alert("NOT A VALID CHOICE");
+    var input = window.prompt("Choose between: rock, paper or scissors.", "");
+    var humanChoice = input.toLowerCase();
+    while (humanChoice !== "rock" && humanChoice !== "paper" && humanChoice !== "scissors") {
+        input = window.prompt("Invalid choice! Please choose between: rock, paper or scissors.");
+        var humanChoice = input.toLowerCase();
     }
+    
+    return humanChoice;
 }
 
 console.log(getHumanChoice());
-
-
 
 
   </script>
