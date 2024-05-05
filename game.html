@@ -41,15 +41,17 @@
 
         function playRound(humanChoice, computerChoice) {
             if (humanChoice == computerChoice) {
-                return console.log(`It's a draw! You both chose ${humanChoice}`)
+                return console.log(`It's a draw! You both chose ${humanChoice}. These are the current scores: You: ${humanScore}. Computer: ${computerScore}`);
             } else if (humanChoice === "rock" && computerChoice === "paper" ||
             humanChoice == "paper" && computerChoice == "scissors" ||
             humanChoice == "scissors" && computerChoice == "rock") {
-                return console.log(`You lose! ${computerChoice} beats ${humanChoice}!`)
+                computerScore += 1;
+                return console.log(`You lose! ${computerChoice} beats ${humanChoice}! These are the current scores: You: ${humanScore}. Computer: ${computerScore}`);
             } else if (humanChoice == "rock" && computerChoice == "scissors" ||
             humanChoice == "paper" && computerChoice == "rock" ||
             humanChoice == "scissors" && computerChoice == "paper") {
-                return console.log(`You win! ${humanChoice} beats ${computerChoice}!` )
+                humanScore += 1;
+                return console.log(`You win! ${humanChoice} beats ${computerChoice}! These are the current scores: You: ${humanScore}. Computer: ${computerScore}`);
             } else {
                 return console.log(`dunno something went wrong`)
             }
