@@ -1,43 +1,63 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <title>Page Title</title>
+    <meta charset="UTF-8">
+    <title>Page Title</title>
 </head>
+
 <body>
-  <script>
-    // Your JavaScript goes here!
-    
-let humanScore = 0;
-let computerScore = 0;
+    <script>
+        // Your JavaScript goes here!
 
-function getComputerChoice() {
-	choice = Math.floor(Math.random()*3);
-    if (choice == 1) {
-        return "rock";
-    } else if (choice == 2) {
-        return "paper"
-    } else {
-        return "scissors"
-    }
-}
+        let humanScore = 0;
+        let computerScore = 0;
 
-console.log(getComputerChoice());
+        function getComputerChoice() {
+            choice = Math.floor(Math.random() * 3);
+            if (choice == 1) {
+                return "rock";
+            } else if (choice == 2) {
+                return "paper"
+            } else {
+                return "scissors"
+            }
+        }
 
-function getHumanChoice() {
-    var input = window.prompt("Choose between: rock, paper or scissors.", "");
-    var humanChoice = input.toLowerCase();
-    while (humanChoice !== "rock" && humanChoice !== "paper" && humanChoice !== "scissors") {
-        input = window.prompt("Invalid choice! Please choose between: rock, paper or scissors.");
-        var humanChoice = input.toLowerCase();
-    }
-    
-    return humanChoice;
-}
+        var computerSelection = getComputerChoice();
 
-console.log(getHumanChoice());
+        console.log("This is the computer's choice: ", computerSelection);
 
+        function getHumanChoice() {
+            var input = window.prompt("Choose between: rock, paper or scissors.", "").toLowerCase();
+            while (input !== "rock" && input !== "paper" && input !== "scissors") {
+                input = window.prompt("Invalid choice! Please choose between: rock, paper or scissors.").toLowerCase();
+            }
+            return input;
+        }
 
-  </script>
+        var humanSelection = getHumanChoice();
+        console.log("This is your choice: ", humanSelection);
+
+        function playRound(humanChoice, computerChoice) {
+            if (humanChoice == computerChoice) {
+                return console.log(`It's a draw! You both chose ${humanChoice}`)
+            } else if (humanChoice === "rock" && computerChoice === "paper" ||
+            humanChoice == "paper" && computerChoice == "scissors" ||
+            humanChoice == "scissors" && computerChoice == "rock") {
+                return console.log(`You lose! ${computerChoice} beats ${humanChoice}!`)
+            } else if (humanChoice == "rock" && computerChoice == "scissors" ||
+            humanChoice == "paper" && computerChoice == "rock" ||
+            humanChoice == "scissors" && computerChoice == "paper") {
+                return console.log(`You win! ${humanChoice} beats ${computerChoice}!` )
+            } else {
+                return console.log(`dunno something went wrong`)
+            }
+        }
+
+        playRound(humanSelection, computerSelection);
+
+    </script>
 </body>
+
 </html>
